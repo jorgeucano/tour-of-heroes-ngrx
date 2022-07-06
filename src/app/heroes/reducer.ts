@@ -26,7 +26,7 @@ const initState: HeroState = {
 
 const heroesReducer = createReducer(
   initState,
-  on(apiActions.heroesFetched, (state, { heroes}) => ({
+  on(apiActions.heroesFetchedSuccess, (state, { heroes}) => ({
     heroes: [...heroes]
   }))
 )

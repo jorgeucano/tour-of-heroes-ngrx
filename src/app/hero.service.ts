@@ -23,10 +23,16 @@ export class HeroService {
 
   /** GET heroes from the server */
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+    let url = this.heroesUrl;
+    const num = Math.floor(Math.random() * 2);
+    if (num % 2 === 0) {
+      url = url + url;
+    }
+    return this.http.get<Hero[]>(url)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<Hero[]>('getHeroes', []))
+        tap(_ => this.log(`fetched heroes`)),
+        // lo comentamos para manejarlo desde ngrx
+        // catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
 

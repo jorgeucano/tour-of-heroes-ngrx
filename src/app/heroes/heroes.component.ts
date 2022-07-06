@@ -30,7 +30,9 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroes$.subscribe(heroes => this.heroes = heroes);
+    this.heroes$.subscribe(heroes => {
+      this.heroes = heroes
+    });
   }
 
   add(name: string): void {
