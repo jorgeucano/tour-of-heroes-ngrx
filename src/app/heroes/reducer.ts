@@ -1,18 +1,25 @@
 import {Hero} from "../hero";
-import {Action} from "@ngrx/store";
+import {Action, createReducer, on} from "@ngrx/store";
 import {HEROES} from "../mock-heroes";
 
+import * as hereosListActions from './actions';
+
 interface HeroState {
-  heroes: Hero[];
+  heroes?: Hero[];
 }
 
 const initState: HeroState = {
-  heroes: HEROES
+  heroes: undefined
 }
 
-export function reducer(
-  state: HeroState = initState,
-  action: Action
-) {
-  return state;
+const heroesReducer = createReducer(
+  initState,
+  on(hereosListActions.heroesOpened, state => ({
+    ...state,
+    heroes: [...HEROES]
+  }))
+);
+
+export function reducer(state: HeroState | undefined, action: Action) {
+  return heroesReducer(state, action)
 }

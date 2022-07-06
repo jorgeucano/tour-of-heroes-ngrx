@@ -17,7 +17,13 @@ body {
   padding: .5rem;
   max-width: 1000px;
   margin: auto;
+
+  /*DARK MODE*/
+  background: black;
+  filter: invert(1); /* This will flip the contents on the page, from black to its inverted color*/
 }
+
+
 @media (min-width: 600px) {
   body {
     padding: 2rem;
