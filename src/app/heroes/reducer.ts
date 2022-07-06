@@ -7,6 +7,11 @@ import {Action, createReducer, on} from "@ngrx/store";
 
 import * as apiActions from './api.actions';
 
+
+export interface GlobalState {
+  hero: HeroState;
+}
+
 interface HeroState {
   heroes?: Hero[];
 }

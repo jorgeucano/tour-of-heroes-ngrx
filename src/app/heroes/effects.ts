@@ -38,6 +38,9 @@ export class HeroEffects {
       ofType(apiActions.heroesFetchedError),
       tap(() => {
         this.messageService.add(`HeroService: Error fetching heroes`);
+      }),
+      map(() => {
+        return []
       })
     ),
     {dispatch: false}
