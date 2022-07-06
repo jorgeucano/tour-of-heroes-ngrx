@@ -19,6 +19,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {reducer} from "./heroes/reducer";
+import {EffectsModule} from "@ngrx/effects";
+import {HeroEffects} from "./heroes/effects";
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import {reducer} from "./heroes/reducer";
     // ngrx
     StoreModule.forRoot({hero: reducer}),
     StoreDevtoolsModule.instrument({maxAge: 50}),
+    EffectsModule.forRoot([HeroEffects]),
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
