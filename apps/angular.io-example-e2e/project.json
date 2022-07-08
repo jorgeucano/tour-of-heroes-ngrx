@@ -1,0 +1,23 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/angular.io-example-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@angular-devkit/build-angular:protractor",
+      "options": {
+        "protractorConfig": "apps/angular.io-example-e2e/protractor.conf.js",
+        "devServerTarget": "angular.io-example:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "angular.io-example:serve:production"
+        }
+      }
+    }
+  },
+  "implicitDependencies": [
+    "angular.io-example"
+  ],
+  "tags": []
+}

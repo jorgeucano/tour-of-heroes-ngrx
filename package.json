@@ -4,12 +4,14 @@
   "description": "Example project from an angular.io guide.",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "e2e": "ng e2e"
+    "ng": "nx",
+    "start:app": "nx run angular.io-example:serve",
+    "start": "nx serve",
+    "build": "nx build",
+    "watch": "nx build --watch --configuration development",
+    "test": "nx test",
+    "e2e": "nx e2e",
+    "postinstall": "node ./decorate-angular-cli.js"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +25,7 @@
     "@angular/router": "^14.1.0-next",
     "@ngrx/effects": "^14.0.1",
     "@ngrx/store": "^14.0.1",
+    "@nrwl/angular": "^14.4.2",
     "angular-in-memory-web-api": "~0.13.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -46,6 +49,9 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~10.8.0",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "@nrwl/workspace": "14.4.2",
+    "nx": "14.4.2",
+    "prettier": "^2.6.2"
   }
 }
